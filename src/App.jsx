@@ -33,22 +33,22 @@ export default function App() {
   }, [tasks]);
 
   // Buscar tarefas iniciais apenas se não houver nenhuma salva
-  useEffect(() => {
-    if (tasks.length === 0) {
-      fetch("https://jsonplaceholder.typicode.com/todos?_limit=10")
-        .then((res) => res.json())
-        .then((data) => {
-          const initialTasks = data.map((item) => ({
-            id: item.id,
-            title: item.title,
-            description: "Descrição da tarefa",
-            isCompleted: item.completed,
-          }));
-          setTasks(initialTasks);
-        })
-        .catch((error) => console.error("Erro ao buscar tarefas:", error));
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (tasks.length === 0) {
+  //     fetch("https://jsonplaceholder.typicode.com/todos?_limit=10")
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         const initialTasks = data.map((item) => ({
+  //           id: item.id,
+  //           title: item.title,
+  //           description: "Descrição da tarefa",
+  //           isCompleted: item.completed,
+  //         }));
+  //         setTasks(initialTasks);
+  //       })
+  //       .catch((error) => console.error("Erro ao buscar tarefas:", error));
+  //   }
+  // }, []);
 
   return (
     <div className="flex flex-col items-center bg-slate-900 min-h-screen w-full p-6 overflow-y-auto">
